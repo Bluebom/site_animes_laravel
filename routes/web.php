@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\VideoController;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +16,8 @@ use App\Http\Controllers\VideoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $users = User::get();
+    return view('welcome', compact('users'));
 });
 
 
@@ -30,3 +32,7 @@ Route::get('video/', 'VideoController@index')->name('videos');
 Route::get('video/{id}', 'VideoController@show')->name('videos.show');
 Route::get('video/create', 'VideoController@create')->name('videos.create');
 Route::get('video/{id}/edit', 'VideoController@edit')->name('videos.edit');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,0 +1,299 @@
+/* Geral */
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+/**
+ * Remove anchor tex-decoration
+ */
+ a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+
+  /**
+     * Remove list-style
+     */
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  html,
+  body,
+  div,
+  span,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  a,
+  em,
+  img,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  article,
+  footer,
+  header,
+  nav,
+  section,
+  main {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  ul {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+
+  body,
+  html {
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    font-family: "Poppins", sans-serif;
+  }
+
+  /* Geral */
+  section.container {
+    position: relative;
+    width: 100%;
+  }
+
+  section.container .navigation {
+    position: fixed;
+    width: 18rem;
+    height: 100%;
+    background-color: $main-light-color;
+    border-left: 0.25rem solid $main-light-color;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    overflow: hidden;
+  }
+
+  section.container .navigation.active {
+    width: 4.5rem;
+  }
+
+  section.container .navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  section.container .navigation ul li {
+    position: relative;
+    width: 100%;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+  }
+
+  section.container .navigation ul li:hover, section.container .navigation ul li.hovered {
+    background-color: #ffffff;
+  }
+
+  section.container .navigation ul li:hover a, section.container .navigation ul li.hovered a {
+    color: $main-light-color;
+  }
+
+  section.container .navigation ul li:hover a::before, section.container .navigation ul li.hovered a::before {
+    content: "";
+    position: absolute;
+    top: -3.5rem;
+    right: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: transparent;
+    border-radius: 50%;
+    -webkit-box-shadow: 2rem 2rem 0 0.5rem #ffffff;
+            box-shadow: 2rem 2rem 0 0.5rem #ffffff;
+    pointer-events: none;
+  }
+
+  section.container .navigation ul li:hover a::after, section.container .navigation ul li.hovered a::after {
+    content: "";
+    position: absolute;
+    bottom: -3.5rem;
+    right: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: transparent;
+    border-radius: 50%;
+    -webkit-box-shadow: 2rem -2rem 0 0.5rem #ffffff;
+            box-shadow: 2rem -2rem 0 0.5rem #ffffff;
+    pointer-events: none;
+  }
+
+  section.container .navigation ul li:nth-child(1) {
+    margin-bottom: 2.5rem;
+    pointer-events: none;
+  }
+
+  section.container .navigation ul li a {
+    position: relative;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: #ffffff;
+  }
+
+  section.container .navigation ul li a span.icon {
+    position: relative;
+    display: block;
+    min-width: 3.75rem;
+    height: 3.5rem;
+    line-height: 4.5rem;
+    text-align: center;
+  }
+
+  section.container .navigation ul li a span.icon ion-icon {
+    font-size: 1.75rem;
+  }
+
+  section.container .navigation ul li a span.title {
+    position: relative;
+    display: block;
+    padding: 0 0.5rem;
+    height: 3.75rem;
+    line-height: 3.75rem;
+    text-align: start;
+    white-space: nowrap;
+  }
+
+  /* Geral */
+  main {
+    position: absolute;
+    width: calc(100% - 20rem);
+    left: 18.5rem;
+    min-height: 100vh;
+    background-color: #ffffff;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  main.active {
+    width: calc(100% - 5rem);
+    left: 5rem;
+  }
+
+  @media (max-width: 720px) {
+    section.container .navigation{
+      width: 14rem;
+    }
+    main{
+      width: 100%;
+      left: 14.5rem;
+    }
+  }
+
+  main .topbar {
+
+    width: 100%;
+    height: 3.75rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0 10px;
+  }
+
+  main .topbar .toggle {
+    position: relative;
+    width: 3.75rem;
+    height: 3.75rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+
+  main .topbar .search {
+    position: relative;
+    margin: 0 0.5rem;
+  }
+
+  main .topbar .search label {
+    position: relative;
+    width: 100%;
+  }
+
+  main .topbar .search label input#search-bar {
+    width: 100%;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    padding: 0.5rem 1.25rem;
+    padding-left: 2rem;
+    font-size: 1.1rem;
+    outline: none;
+    border: 1px solid #999999;
+  }
+
+  main .topbar .search label ion-icon {
+    position: absolute;
+    top: 0;
+    left: 0.5rem;
+    font-size: 1.2rem;
+    color: #000;
+  }
+
+  main .topbar .user {
+    position: relative;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  main .topbar .user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  /*# sourceMappingURL=style.css.map */
